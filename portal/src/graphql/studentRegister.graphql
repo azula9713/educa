@@ -1,0 +1,21 @@
+mutation StudentRegister(
+  $stu_email: String!
+  $stu_password: String!
+  $stu_first_name: String!
+  $stu_last_name: String!
+  $stu_mobile: String!
+  $batch_id: Int!
+  $stu_is_approved: Boolean!
+  $stu_is_allowed: Boolean!
+) {
+  studentRegister(
+    stu_email: $stu_email
+    stu_password: $stu_password
+    stu_first_name: $stu_first_name
+    stu_last_name: $stu_last_name
+    stu_mobile: $stu_mobile
+    batch_id: $batch_id
+    stu_is_approved: $stu_is_approved
+    stu_is_allowed: $stu_is_allowed
+  )
+}

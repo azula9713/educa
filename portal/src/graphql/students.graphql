@@ -1,0 +1,13 @@
+query Students {
+  students {
+    stu_id
+    stu_email
+    batch_id
+    stu_first_name
+    stu_last_name
+    stu_mobile
+    stu_is_approved
+    stu_is_allowed
+    stu_reg_date
+  }
+}

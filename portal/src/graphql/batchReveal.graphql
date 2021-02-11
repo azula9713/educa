@@ -1,0 +1,6 @@
+query BatchReveal($batch_id: Int!) {
+  viewBatch(batch_id: $batch_id) {
+    batch_id
+    batch_name
+  }
+}

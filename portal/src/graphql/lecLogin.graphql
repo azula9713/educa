@@ -1,0 +1,13 @@
+mutation LecLogin($lec_email: String!, $lec_password: String!) {
+  lecLogin(lec_email: $lec_email, lec_password: $lec_password) {
+    accessToken
+    lecturer {
+      lec_id
+      lec_email
+      lec_mobile
+      lec_first_name
+      lec_last_name
+      lec_reg_date
+    }
+  }
+}

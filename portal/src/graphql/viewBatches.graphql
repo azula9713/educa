@@ -1,0 +1,6 @@
+query ViewBatches {
+  viewBatches {
+    batch_id
+    batch_name
+  }
+}
