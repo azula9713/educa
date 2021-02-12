@@ -92,7 +92,7 @@ export class StudentResolver {
     @Arg("stu_first_name", () => String) stu_first_name: string,
     @Arg("stu_last_name", () => String) stu_last_name: string,
     @Arg("stu_mobile", () => String) stu_mobile: string,
-    @Arg("batch_id", () => Int) batch_id: number,
+    @Arg("batch_name", () => String) batch_name: string,
     @Arg("stu_is_approved", () => Boolean) stu_is_approved: boolean,
     @Arg("stu_is_allowed", () => Boolean) stu_is_allowed: boolean
   ) {
@@ -112,7 +112,7 @@ export class StudentResolver {
         stu_first_name,
         stu_last_name,
         stu_mobile,
-        batch_id,
+        batch_name,
         stu_is_allowed,
         stu_is_approved,
         stu_reg_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
@@ -125,7 +125,7 @@ export class StudentResolver {
       stu_first_name,
       stu_last_name,
       stu_mobile,
-      batch_id,
+      batch_name,
       stu_is_allowed,
       stu_is_approved,
     ];

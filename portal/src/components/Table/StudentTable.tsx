@@ -51,7 +51,6 @@ export const StudentTable: React.FC = () => {
           </tr>
         </thead>
         <tbody className="bg-gray-200">
-          {Batches?.viewBatches.map((k) => {})}
           {Students?.students.map((x) => {
             return (
               <tr key={x.stu_id} className="bg-white border-4 border-gray-200">

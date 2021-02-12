@@ -16,7 +16,7 @@ export class Student extends BaseEntity {
 
   @Field(() => Int)
   @Column()
-  batch_id: number;
+  batch_name: string;
 
   @Field()
   @Column()
