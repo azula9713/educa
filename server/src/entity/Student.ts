@@ -19,6 +19,10 @@ export class Student extends BaseEntity {
   batch_name: string;
 
   @Field()
+  @Column({ nullable: true })
+  avatar: string;
+
+  @Field()
   @Column()
   stu_first_name: string;
 

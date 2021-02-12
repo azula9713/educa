@@ -12,8 +12,7 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
   const [stu_password, setPassword] = useState("");
   const [stu_first_name, setFirstName] = useState("");
   const [stu_last_name, setLastName] = useState("");
-  const [batch, setBatch] = useState("");
-  const [batch_id, setBatchId] = useState(0);
+  const [batch_name, setBatchName] = useState("");
   const [stu_mobile, setMobile] = useState("");
   const [stu_is_allowed, setIsAllowed] = useState<boolean>(false);
   const [stu_is_approved, setIsApproved] = useState<boolean>(false);
@@ -38,10 +37,10 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
     </div>
   );
 
-  const handler = function (e: any) {
-    setBatchId(Number(e.target.getAttribute("data-index")));
-    console.log(setBatchId); //will log the index of the clicked item
-  };
+  // const handler = function (e: any) {
+  //   setBatchId(Number(e.target.getAttribute("data-index")));
+  //   console.log(setBatchId); //will log the index of the clicked item
+  // };
 
   return (
     <div>
@@ -72,12 +71,12 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
                       stu_first_name,
                       stu_last_name,
                       stu_mobile,
-                      batch_id,
+                      batch_name,
                       stu_is_allowed,
                       stu_is_approved,
                     },
                   });
-                  console.log(stu_email, batch_id);
+                  console.log(stu_email, batch_name);
                   history.push("/student-login");
                 } catch (err) {
                   console.log(err.message);
@@ -167,23 +166,14 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
                 </label>
                 <select
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline-600"
-                  value={batch}
+                  value={batch_name}
                   onChange={(e) => {
-                    setBatch(e.target.value);
+                    setBatchName(e.target.value);
                   }}
                 >
                   <option hidden>Select Your Batch</option>
                   {Batches?.viewBatches.map((x) => {
-                    return (
-                      <option
-                        key={x.batch_id}
-                        data-index={x.batch_id}
-                        onClick={handler}
-                      >
-                        {" "}
-                        {x.batch_name}
-                      </option>
-                    );
+                    return <option key={x.batch_id}> {x.batch_name}</option>;
                   })}
                 </select>
               </div>
@@ -204,7 +194,6 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
             </div>
           </div>
         </div>
-        {/* Image Section */}
         <div className="w-1/2 shadow-2xl">
           <img
             className="object-cover w-full h-screen hidden md:block"

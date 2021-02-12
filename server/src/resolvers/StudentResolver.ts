@@ -89,6 +89,7 @@ export class StudentResolver {
   async studentRegister(
     @Arg("stu_email", () => String) stu_email: string,
     @Arg("stu_password", () => String) stu_password: string,
+    @Arg("avatar", () => String) avatar: string,
     @Arg("stu_first_name", () => String) stu_first_name: string,
     @Arg("stu_last_name", () => String) stu_last_name: string,
     @Arg("stu_mobile", () => String) stu_mobile: string,
@@ -109,6 +110,7 @@ export class StudentResolver {
       await Student.insert({
         stu_email,
         stu_password: hashedPassword,
+        avatar,
         stu_first_name,
         stu_last_name,
         stu_mobile,
@@ -122,6 +124,7 @@ export class StudentResolver {
     }
     return [
       stu_email,
+      avatar,
       stu_first_name,
       stu_last_name,
       stu_mobile,

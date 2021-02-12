@@ -4,9 +4,10 @@ mutation StudentLogin($stu_email: String!, $stu_password: String!) {
     student {
       stu_id
       stu_email
+      avatar
       stu_first_name
       stu_last_name
-      batch_id
+      batch_name
       stu_mobile
       stu_is_approved
       stu_is_allowed

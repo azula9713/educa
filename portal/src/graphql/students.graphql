@@ -2,7 +2,8 @@ query Students {
   students {
     stu_id
     stu_email
-    batch_id
+    avatar
+    batch_name
     stu_first_name
     stu_last_name
     stu_mobile

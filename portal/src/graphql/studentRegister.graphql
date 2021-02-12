@@ -1,20 +1,22 @@
 mutation StudentRegister(
   $stu_email: String!
+  $avatar: String!
   $stu_password: String!
   $stu_first_name: String!
   $stu_last_name: String!
   $stu_mobile: String!
-  $batch_id: Int!
+  $batch_name: String!
   $stu_is_approved: Boolean!
   $stu_is_allowed: Boolean!
 ) {
   studentRegister(
     stu_email: $stu_email
     stu_password: $stu_password
+    avatar: $avatar
     stu_first_name: $stu_first_name
     stu_last_name: $stu_last_name
     stu_mobile: $stu_mobile
-    batch_id: $batch_id
+    batch_name: $batch_name
     stu_is_approved: $stu_is_approved
     stu_is_allowed: $stu_is_allowed
   )
