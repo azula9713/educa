@@ -35,6 +35,7 @@ export type Student = {
   __typename?: 'Student';
   stu_id: Scalars['Int'];
   batch_name: Scalars['Int'];
+  avatar: Scalars['String'];
   stu_first_name: Scalars['String'];
   stu_last_name: Scalars['String'];
   stu_email: Scalars['String'];
@@ -91,6 +92,7 @@ export type MutationStudentRegisterArgs = {
   stu_mobile: Scalars['String'];
   stu_last_name: Scalars['String'];
   stu_first_name: Scalars['String'];
+  avatar: Scalars['String'];
   stu_password: Scalars['String'];
   stu_email: Scalars['String'];
 };
@@ -184,13 +186,14 @@ export type StudentLoginMutation = (
     & Pick<StudentLoginResponse, 'accessToken'>
     & { student: (
       { __typename?: 'Student' }
-      & Pick<Student, 'stu_id' | 'stu_email' | 'stu_first_name' | 'stu_last_name' | 'batch_name' | 'stu_mobile' | 'stu_is_approved' | 'stu_is_allowed' | 'stu_reg_date'>
+      & Pick<Student, 'stu_id' | 'stu_email' | 'avatar' | 'stu_first_name' | 'stu_last_name' | 'batch_name' | 'stu_mobile' | 'stu_is_approved' | 'stu_is_allowed' | 'stu_reg_date'>
     ) }
   ) }
 );
 
 export type StudentRegisterMutationVariables = Exact<{
   stu_email: Scalars['String'];
+  avatar: Scalars['String'];
   stu_password: Scalars['String'];
   stu_first_name: Scalars['String'];
   stu_last_name: Scalars['String'];
@@ -213,7 +216,7 @@ export type StudentsQuery = (
   { __typename?: 'Query' }
   & { students: Array<(
     { __typename?: 'Student' }
-    & Pick<Student, 'stu_id' | 'stu_email' | 'batch_name' | 'stu_first_name' | 'stu_last_name' | 'stu_mobile' | 'stu_is_approved' | 'stu_is_allowed' | 'stu_reg_date'>
+    & Pick<Student, 'stu_id' | 'stu_email' | 'avatar' | 'batch_name' | 'stu_first_name' | 'stu_last_name' | 'stu_mobile' | 'stu_is_approved' | 'stu_is_allowed' | 'stu_reg_date'>
   )> }
 );
 
@@ -341,6 +344,7 @@ export const StudentLoginDocument = gql`
     student {
       stu_id
       stu_email
+      avatar
       stu_first_name
       stu_last_name
       batch_name
@@ -379,10 +383,11 @@ export type StudentLoginMutationHookResult = ReturnType<typeof useStudentLoginMu
 export type StudentLoginMutationResult = Apollo.MutationResult<StudentLoginMutation>;
 export type StudentLoginMutationOptions = Apollo.BaseMutationOptions<StudentLoginMutation, StudentLoginMutationVariables>;
 export const StudentRegisterDocument = gql`
-    mutation StudentRegister($stu_email: String!, $stu_password: String!, $stu_first_name: String!, $stu_last_name: String!, $stu_mobile: String!, $batch_name: String!, $stu_is_approved: Boolean!, $stu_is_allowed: Boolean!) {
+    mutation StudentRegister($stu_email: String!, $avatar: String!, $stu_password: String!, $stu_first_name: String!, $stu_last_name: String!, $stu_mobile: String!, $batch_name: String!, $stu_is_approved: Boolean!, $stu_is_allowed: Boolean!) {
   studentRegister(
     stu_email: $stu_email
     stu_password: $stu_password
+    avatar: $avatar
     stu_first_name: $stu_first_name
     stu_last_name: $stu_last_name
     stu_mobile: $stu_mobile
@@ -408,6 +413,7 @@ export type StudentRegisterMutationFn = Apollo.MutationFunction<StudentRegisterM
  * const [studentRegisterMutation, { data, loading, error }] = useStudentRegisterMutation({
  *   variables: {
  *      stu_email: // value for 'stu_email'
+ *      avatar: // value for 'avatar'
  *      stu_password: // value for 'stu_password'
  *      stu_first_name: // value for 'stu_first_name'
  *      stu_last_name: // value for 'stu_last_name'
@@ -429,6 +435,7 @@ export const StudentsDocument = gql`
   students {
     stu_id
     stu_email
+    avatar
     batch_name
     stu_first_name
     stu_last_name
