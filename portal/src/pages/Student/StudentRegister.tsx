@@ -13,6 +13,7 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
   const [stu_first_name, setFirstName] = useState("");
   const [stu_last_name, setLastName] = useState("");
   const [batch_name, setBatchName] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [stu_mobile, setMobile] = useState("");
   const [stu_is_allowed, setIsAllowed] = useState<boolean>(false);
   const [stu_is_approved, setIsApproved] = useState<boolean>(false);
@@ -47,13 +48,13 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
       <div className="w-full flex flex-wrap">
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-            <a href="#" className="text-white font-bold text-xl p-4">
+            <Link to="/" className="text-white font-bold text-xl p-4">
               <img
                 className="mx-auto h-12 w-auto"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                 alt="Workflow"
               />
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
             <p className="text-center text-3xl">Welcome To Educa</p>
@@ -68,6 +69,7 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
                     variables: {
                       stu_email,
                       stu_password,
+                      avatar,
                       stu_first_name,
                       stu_last_name,
                       stu_mobile,
@@ -86,6 +88,48 @@ export const StudentRegister: React.FC<RouteComponentProps> = ({ history }) => {
                 }
               }}
             >
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Profile Picture
+                </label>
+                <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                  <div className="space-y-1 text-center">
+                    <svg
+                      className="mx-auto h-12 w-12 text-gray-400"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 48 48"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div className="flex text-sm text-gray-600">
+                      <label
+                        htmlFor="file-upload"
+                        className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload"
+                          name="file-upload"
+                          type="file"
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-col pt-4">
                 <label htmlFor="firstname" className="text-lg">
                   First Name
